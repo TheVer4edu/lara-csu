@@ -18,8 +18,19 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 
-Route::prefix('/hello')->group(function () {
+Route::prefix('/book')->group(function () {
 
-    Route::get('/', ['uses' => 'HelloController@get']);
+    Route::get('/', ['uses' => 'App\Http\Controllers\BookController@getAll']);
+    Route::get('/{id}', ['uses' => 'App\Http\Controllers\BookController@get']);
+    Route::post('/', ['uses' => 'App\Http\Controllers\BookController@create']);
+    Route::delete('/{id}', ['uses' => 'App\Http\Controllers\BookController@delete']);
+    Route::put('/{id}', ['uses' => 'App\Http\Controllers\BookController@edit']);
+
+});
+
+Route::prefix('/bookStatuses')->group(function () {
+
+    Route::get('/', ['uses' => 'App\Http\Controllers\BookStatusController@getAll']);
+    Route::get('/{id}', ['uses' => 'App\Http\Controllers\BookStatusController@get']);
 
 });
