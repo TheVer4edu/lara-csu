@@ -9,6 +9,35 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
 
+/**
+ * @SWG\Definition(
+ *  definition="User",
+ *  @SWG\Property(
+ *      property="id",
+ *      type="integer"
+ *  ),
+ *  @SWG\Property(
+ *      property="name",
+ *      type="string"
+ *  ),
+ *  @SWG\Property(
+ *      property="email",
+ *      type="string"
+ *  ),
+ *  @SWG\Property(
+ *      property="email_verified_at",
+ *      type="date"
+ *  ),
+ *  @SWG\Property(
+ *      property="created_at",
+ *      type="date"
+ *  ),
+ *  @SWG\Property(
+ *      property="updated_at",
+ *      type="date"
+ *  )
+ * )
+ */
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
