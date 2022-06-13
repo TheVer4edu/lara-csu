@@ -48,8 +48,8 @@ trait ApiResponse
     {
         return [
             'success' => true,
-            'data'    => $data,
             'message' => $message,
+            'data'    => $data,
         ];
     }
 

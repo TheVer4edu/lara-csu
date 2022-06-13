@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,5 +33,18 @@ Route::prefix('/bookStatuses')->group(function () {
 
     Route::get('/', ['uses' => 'App\Http\Controllers\BookStatusController@getAll']);
     Route::get('/{id}', ['uses' => 'App\Http\Controllers\BookStatusController@get']);
+
+});
+
+Route::prefix('/user')->group(function () {
+
+    Route::group(['middleware' => ['auth:sanctum']], function () {
+        Route::get('/info', ['uses' => 'App\Http\Controllers\AuthController@getCurrentUser'])->name('curuserinfo');
+        Route::get('/info/{id}', ['uses' => 'App\Http\Controllers\AuthController@getAnotherUser'])->name('othuserinfo');
+        Route::post('/logout', ['uses' => 'App\Http\Controllers\AuthController@logout']);
+    });
+
+    Route::post('/register', ['uses' => 'App\Http\Controllers\AuthController@register'])->name('reguser');
+    Route::post('/login', ['uses' => 'App\Http\Controllers\AuthController@login'])->name('loginpage');
 
 });

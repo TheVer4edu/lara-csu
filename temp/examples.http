@@ -1,0 +1,9 @@
+GET http://lanhost:8000/api/v1/user/
+Accept: application/json
+
+###
+
+GET http://lanhost:8000/api/v1/user/
+Accept: application/json
+Authorization: Bearer 7fa24214bc7f28d058e3f6673881a5defd7324daee77f2607b640dc91fa182a2
+###
