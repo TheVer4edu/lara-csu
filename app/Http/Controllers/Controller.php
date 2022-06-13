@@ -13,6 +13,14 @@ use Illuminate\Routing\Controller as BaseController;
  *     version="1.0.0",
  *     title="Book organizer API"
  *   )
+ *
+ * @OA\SecurityScheme (
+ *      securityScheme="bearerAuth",
+ *      type="http",
+ *      scheme="bearer",
+ *      name="Authorization",
+ *      in="header",
+ * )
  */
 class Controller extends BaseController
 {

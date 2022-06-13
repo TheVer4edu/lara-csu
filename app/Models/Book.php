@@ -6,25 +6,30 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @SWG\Definition(
- *  definition="Book",
- *  @SWG\Property(
+ * @OA\Schema(
+ *  schema="Book",
+ *  @OA\Property(
  *      property="id",
  *      type="integer"
  *  ),
- *  @SWG\Property(
+ *  @OA\Property(
  *      property="name",
  *      type="string"
  *  ),
- *  @SWG\Property(
+ *  @OA\Property(
  *      property="contents",
  *      type="string"
  *  ),
- *  @SWG\Property(
+ *  @OA\Property(
+ *      property="status",
+ *      type="integer",
+ *      example=1
+ *  ),
+ *  @OA\Property(
  *      property="created_at",
  *      type="date"
  *  ),
- *  @SWG\Property(
+ *  @OA\Property(
  *      property="updated_at",
  *      type="date"
  *  )

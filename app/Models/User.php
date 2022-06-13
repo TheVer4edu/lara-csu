@@ -9,30 +9,31 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
 
+
 /**
- * @SWG\Definition(
- *  definition="User",
- *  @SWG\Property(
+ * @OA\Schema(
+ *  schema="User",
+ *  @OA\Property(
  *      property="id",
  *      type="integer"
  *  ),
- *  @SWG\Property(
+ *  @OA\Property(
  *      property="name",
  *      type="string"
  *  ),
- *  @SWG\Property(
+ *  @OA\Property(
  *      property="email",
  *      type="string"
  *  ),
- *  @SWG\Property(
+ *  @OA\Property(
  *      property="email_verified_at",
  *      type="date"
  *  ),
- *  @SWG\Property(
+ *  @OA\Property(
  *      property="created_at",
  *      type="date"
  *  ),
- *  @SWG\Property(
+ *  @OA\Property(
  *      property="updated_at",
  *      type="date"
  *  )
