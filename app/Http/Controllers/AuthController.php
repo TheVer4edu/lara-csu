@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Traits\ApiResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Testing\Fluent\Concerns\Has;
 
 class AuthController extends Controller {
 
@@ -65,6 +66,18 @@ class AuthController extends Controller {
     public function logout(Request $req) {
         auth()->user()->tokens()->delete();
         return $this->sendEmptyResponse('OK', 200);
+    }
+
+    public function edit(Request $req) {
+        $user = auth()->user();
+        if($user->name != $req->input('name') and $req->input('name') != null)
+            $user->name = $req->input('name');
+        if($user->email != $req->input('email') and $req->input('email') != null)
+            $user->email = $req->input('email');
+        if(!Hash::check($req->input('password'), $user->password) and $req->input('password') != null)
+            $user->password = Hash::make($req->input('password'));
+        $user->save();
+        return $this->sendResponse($user, 'OK', 200);
     }
 
 }

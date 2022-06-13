@@ -1,9 +1,57 @@
-GET http://lanhost:8000/api/v1/user/
+POST http://192.168.0.101:8000/api/v1/user/register
 Accept: application/json
+Content-Type: application/json
+
+{
+    "name": "User name",
+    "email": "user@mail.ru",
+    "password": "12345"
+}
+
+> {%  client.global.set("API_TOKEN", response.body['data']['token']) %}
 
 ###
 
-GET http://lanhost:8000/api/v1/user/
+POST http://192.168.0.101:8000/api/v1/user/login
 Accept: application/json
-Authorization: Bearer 7fa24214bc7f28d058e3f6673881a5defd7324daee77f2607b640dc91fa182a2
+Content-Type: application/json
+
+{
+    "email": "user@mail.ru",
+    "password": "12345"
+}
+> {%  client.global.set("API_TOKEN", response.body['data']['token']) %}
+
+###
+
+GET /api/v1/user/info HTTP/1.1
+Host: 192.168.0.101:8000
+Accept: application/json
+Authorization: Bearer {{ API_TOKEN }}
+Content-Type: application/json
+
+###
+
+PUT /api/v1/user/edit HTTP/1.1
+Host: 192.168.0.101:8000
+Accept: application/json
+Authorization: Bearer {{ API_TOKEN }}
+Content-Type: application/json
+
+{
+    "name": "New user name"
+}
+
+###
+
+PUT /api/v1/user/edit HTTP/1.1
+Host: 192.168.0.101:8000
+Accept: application/json
+Authorization: Bearer {{ API_TOKEN }}
+Content-Type: application/json
+
+{
+    "email": "otherEmail@mail.ru"
+}
+
 ###

@@ -20,20 +20,20 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::prefix('/book')->group(function () {
-
-    Route::get('/', ['uses' => 'App\Http\Controllers\BookController@getAll']);
-    Route::get('/{id}', ['uses' => 'App\Http\Controllers\BookController@get']);
-    Route::post('/', ['uses' => 'App\Http\Controllers\BookController@create']);
-    Route::delete('/{id}', ['uses' => 'App\Http\Controllers\BookController@delete']);
-    Route::put('/{id}', ['uses' => 'App\Http\Controllers\BookController@edit']);
-
+    Route::group(['middleware' => ['auth:sanctum']], function () {
+        Route::get('/', ['uses' => 'App\Http\Controllers\BookController@getAll']);
+        Route::get('/{id}', ['uses' => 'App\Http\Controllers\BookController@get']);
+        Route::post('/', ['uses' => 'App\Http\Controllers\BookController@create']);
+        Route::delete('/{id}', ['uses' => 'App\Http\Controllers\BookController@delete']);
+        Route::put('/{id}', ['uses' => 'App\Http\Controllers\BookController@edit']);
+    });
 });
 
 Route::prefix('/bookStatuses')->group(function () {
-
-    Route::get('/', ['uses' => 'App\Http\Controllers\BookStatusController@getAll']);
-    Route::get('/{id}', ['uses' => 'App\Http\Controllers\BookStatusController@get']);
-
+    Route::group(['middleware' => ['auth:sanctum']], function () {
+        Route::get('/', ['uses' => 'App\Http\Controllers\BookStatusController@getAll']);
+        Route::get('/{id}', ['uses' => 'App\Http\Controllers\BookStatusController@get']);
+    });
 });
 
 Route::prefix('/user')->group(function () {
@@ -42,6 +42,7 @@ Route::prefix('/user')->group(function () {
         Route::get('/info', ['uses' => 'App\Http\Controllers\AuthController@getCurrentUser'])->name('curuserinfo');
         Route::get('/info/{id}', ['uses' => 'App\Http\Controllers\AuthController@getAnotherUser'])->name('othuserinfo');
         Route::post('/logout', ['uses' => 'App\Http\Controllers\AuthController@logout']);
+        Route::put('/edit', ['uses' => 'App\Http\Controllers\AuthController@edit']);
     });
 
     Route::post('/register', ['uses' => 'App\Http\Controllers\AuthController@register'])->name('reguser');

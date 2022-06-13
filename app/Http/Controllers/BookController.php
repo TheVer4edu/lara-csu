@@ -30,7 +30,7 @@ class BookController extends Controller {
 
         $book->save();
 
-        return $this->sendEmptyResponse('OK', 200);
+        return $this->sendResponse($book, 'OK', 200);
     }
 
     public function delete($id, Request $req) {
@@ -57,7 +57,7 @@ class BookController extends Controller {
                 $book->status_id = $status->id;
         }
         $book->save();
-        return $this->sendEmptyResponse('OK', 200);
+        return $this->sendResponse($book, 'OK', 200);
     }
 
 }
