@@ -2,24 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BookStatus;
+use App\Models\UserRole;
 use App\Traits\ApiResponse;
 use Illuminate\Http\Request;
 
-class BookStatusController extends Controller {
-
+class UserRolesController extends Controller
+{
     use ApiResponse;
 
+
     public function getAll(Request $req) {
-        $statuses = BookStatus::all();
-        return $this->sendResponse($statuses, 'OK', 200);
+        $roles = UserRole::all();
+        return $this->sendResponse($roles, 'OK', 200);
     }
 
     /**
      * @OA\Get(
-     *     path="/api/v1/bookStatuses/",
-     *     description="Get list or one status",
-     *     tags={"Statuses"},
+     *     path="/api/v1/userRoles/",
+     *     description="Get list or one role",
+     *     tags={"Roles"},
      *     @OA\Parameter(
      *         in="path",
      *         name="id",
@@ -39,10 +40,10 @@ class BookStatusController extends Controller {
      * )
      */
     public function get($id, Request $req) {
-        $status = BookStatus::find($id);
-        if($status == null)
+        $role = UserRole::find($id);
+        if($role == null)
             return $this->sendError('Not found', 404);
-        return $this->sendResponse($status, 'OK', 200);
+        return $this->sendResponse($role, 'OK', 200);
     }
 
     //

@@ -18,7 +18,7 @@ class BookController extends Controller {
      *     description="Get all books",
      *     tags={"Books"},
      *     @OA\Response(
-     *         response=201,
+     *         response=200,
      *         description="OK",
      *         content={
      *             @OA\MediaType(

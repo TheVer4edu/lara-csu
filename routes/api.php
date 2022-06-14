@@ -49,3 +49,18 @@ Route::prefix('/user')->group(function () {
     Route::post('/login', ['uses' => 'App\Http\Controllers\AuthController@login'])->name('loginpage');
 
 });
+
+Route::prefix('/userRoles')->group(function () {
+    Route::group(['middleware' => ['auth:sanctum']], function () {
+        Route::get('/', ['uses' => 'App\Http\Controllers\UserRolesController@getAll']);
+        Route::get('/{id}', ['uses' => 'App\Http\Controllers\UserRolesController@get']);
+    });
+});
+
+Route::prefix('/cabinet')->group(function () {
+    Route::group(['middleware' => ['auth:sanctum']], function () {
+        Route::post('/', ['uses' => 'App\Http\Controllers\BookUserRelationController@create']);
+        Route::get('/getAllByUser', ['uses' => 'App\Http\Controllers\BookUserRelationController@getAllByUser']);
+        Route::get('/getCoworkersOfBook', ['uses' => 'App\Http\Controllers\BookUserRelationController@getAllOfBook']);
+    });
+});
