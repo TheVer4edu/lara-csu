@@ -15,11 +15,9 @@ use Illuminate\Routing\Controller as BaseController;
  *   )
  *
  * @OA\SecurityScheme (
- *      securityScheme="bearerAuth",
+ *      securityScheme="bearer_token",
  *      type="http",
- *      scheme="bearer",
- *      name="Authorization",
- *      in="header",
+ *      scheme="bearer"
  * )
  */
 class Controller extends BaseController

@@ -20,6 +20,7 @@ class UserRolesController extends Controller
      * @OA\Get(
      *     path="/api/v1/userRoles/",
      *     description="Get list or one role",
+     *     security={{"bearer_token":{}}},
      *     tags={"Roles"},
      *     @OA\Parameter(
      *         in="path",

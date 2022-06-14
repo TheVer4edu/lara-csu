@@ -18,6 +18,7 @@ class BookUserRelationController extends Controller
      * @OA\Post(
      *     path="/api/v1/cabinet/",
      *     description="Create a cabinet entry",
+     *     security={{"bearer_token":{}}},
      *     tags={"Cabinet"},
      *     @OA\Parameter(
      *         in="query",
@@ -82,6 +83,7 @@ class BookUserRelationController extends Controller
      * @OA\Get(
      *     path="/api/v1/cabinet/getAllByUser",
      *     description="Get all books by user",
+     *     security={{"bearer_token":{}}},
      *     tags={"Cabinet"},
      *     @OA\Parameter(
      *         in="query",
@@ -153,6 +155,7 @@ class BookUserRelationController extends Controller
      * @OA\Get(
      *     path="/api/v1/cabinet/getCoworkersOfBook",
      *     description="Get all coworkers of book",
+     *     security={{"bearer_token":{}}},
      *     tags={"Cabinet"},
      *     @OA\Parameter(
      *         in="query",

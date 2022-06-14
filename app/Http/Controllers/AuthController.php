@@ -16,6 +16,7 @@ class AuthController extends Controller {
      * @OA\Get(
      *     path="/api/v1/user/",
      *     description="Get one user",
+     *     security={{"bearer_token":{}}},
      *     tags={"Users"},
      *     @OA\Parameter(
      *         in="path",
@@ -181,6 +182,7 @@ class AuthController extends Controller {
      * @OA\Post(
      *     path="/api/v1/user/logout",
      *     description="Log out ",
+     *     security={{"bearer_token":{}}},
      *     tags={"Users"},
      *     @OA\Response(
      *         response=200,
@@ -213,6 +215,7 @@ class AuthController extends Controller {
      * @OA\Put(
      *     path="/api/v1/user/edit",
      *     description="Edit user data ",
+     *     security={{"bearer_token":{}}},
      *     tags={"Users"},
      *     @OA\Parameter(
      *         in="query",

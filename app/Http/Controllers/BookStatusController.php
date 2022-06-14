@@ -19,6 +19,7 @@ class BookStatusController extends Controller {
      * @OA\Get(
      *     path="/api/v1/bookStatuses/",
      *     description="Get list or one status",
+     *     security={{"bearer_token":{}}},
      *     tags={"Statuses"},
      *     @OA\Parameter(
      *         in="path",

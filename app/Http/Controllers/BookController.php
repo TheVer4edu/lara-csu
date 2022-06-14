@@ -16,6 +16,7 @@ class BookController extends Controller {
      * @OA\Get(
      *     path="/api/v1/book/",
      *     description="Get all books",
+     *     security={{"bearer_token":{}}},
      *     tags={"Books"},
      *     @OA\Response(
      *         response=200,
@@ -53,6 +54,7 @@ class BookController extends Controller {
      * @OA\Get(
      *     path="/api/v1/book/{id}",
      *     description="Get one book",
+     *     security={{"bearer_token":{}}},
      *     tags={"Books"},
      *     @OA\Parameter(
      *         in="path",
@@ -104,6 +106,7 @@ class BookController extends Controller {
      * @OA\Post(
      *     path="/api/v1/book/",
      *     description="Create a new book",
+     *     security={{"bearer_token":{}}},
      *     tags={"Books"},
      *     @OA\Parameter(
      *         in="query",
@@ -142,6 +145,7 @@ class BookController extends Controller {
      * @OA\Delete (
      *     path="/api/v1/book/",
      *     description="Delete a book",
+     *     security={{"bearer_token":{}}},
      *     tags={"Books"},
      *     @OA\Parameter(
      *         in="path",
@@ -173,6 +177,7 @@ class BookController extends Controller {
      * @OA\Put(
      *     path="/api/v1/book/",
      *     description="Edit a book",
+     *     security={{"bearer_token":{}}},
      *     tags={"Books"},
      *     @OA\Parameter(
      *         in="path",

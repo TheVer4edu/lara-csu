@@ -49,7 +49,12 @@
                     "404": {
                         "description": "Not found"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
             }
         },
         "/api/v1/user/register": {
@@ -194,7 +199,12 @@
                     "401": {
                         "description": "Unauthorized."
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
             }
         },
         "/api/v1/user/edit": {
@@ -248,7 +258,12 @@
                     "401": {
                         "description": "Unauthorized."
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
             }
         },
         "/api/v1/book/": {
@@ -291,7 +306,12 @@
                     "404": {
                         "description": "Not found"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
             },
             "put": {
                 "tags": [
@@ -334,7 +354,12 @@
                     "404": {
                         "description": "Not found"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -361,7 +386,12 @@
                     "401": {
                         "description": "Unauthorized."
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -383,7 +413,12 @@
                     "401": {
                         "description": "Unauthorized."
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
             }
         },
         "/api/v1/book/{id}": {
@@ -438,7 +473,12 @@
                     "404": {
                         "description": "Not found"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
             }
         },
         "/api/v1/bookStatuses/": {
@@ -462,7 +502,12 @@
                     "401": {
                         "description": "Unauthorized."
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
             }
         },
         "/api/v1/cabinet/": {
@@ -499,7 +544,12 @@
                     "404": {
                         "description": "Not found"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
             }
         },
         "/api/v1/cabinet/getAllByUser": {
@@ -554,7 +604,12 @@
                     "404": {
                         "description": "Not found"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
             }
         },
         "/api/v1/cabinet/getCoworkersOfBook": {
@@ -617,7 +672,12 @@
                     "404": {
                         "description": "Not found"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
             }
         },
         "/api/v1/userRoles/": {
@@ -641,7 +701,12 @@
                     "401": {
                         "description": "Unauthorized."
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
             }
         }
     },
@@ -768,10 +833,8 @@
             }
         },
         "securitySchemes": {
-            "bearerAuth": {
+            "bearer_token": {
                 "type": "http",
-                "name": "Authorization",
-                "in": "header",
                 "scheme": "bearer"
             }
         }
