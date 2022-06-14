@@ -10,7 +10,8 @@ use Illuminate\Database\Eloquent\Model;
  *  schema="BookStatus",
  *  @OA\Property(
  *      property="id",
- *      type="integer"
+ *      type="integer",
+ *      example=1
  *  ),
  *  @OA\Property(
  *      property="status",

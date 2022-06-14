@@ -68,7 +68,9 @@ class BookController extends Controller {
      *                   @OA\Schema(
      *                         @OA\Property(property="success", type="boolean", example=true),
      *                         @OA\Property(property="message", type="string", example="OK"),
-     *                         @OA\Property(property="data", ref="#/components/schemas/Book"),
+     *                         @OA\Property(property="data", type="object",
+     *                            @OA\Property(property="book", ref="#/components/schemas/Book"), @OA\Property(property="status", ref="#/components/schemas/BookStatus"),
+     *                        ),
      *                   ),
      *              ),
      *         },
@@ -90,7 +92,12 @@ class BookController extends Controller {
         $book = Book::find($id);
         if($book == null)
             return $this->sendError('Not found', 404);
-        return $this->sendResponse($book, 'OK', 200);
+        $status = BookStatus::find($book->status_id);
+        $result = [
+            "book"=>$book,
+            "status"=>$status,
+        ];
+        return $this->sendResponse($result, 'OK', 200);
     }
 
     /**

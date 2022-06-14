@@ -416,7 +416,15 @@
                                             "example": "OK"
                                         },
                                         "data": {
-                                            "$ref": "#/components/schemas/Book"
+                                            "properties": {
+                                                "book": {
+                                                    "$ref": "#/components/schemas/Book"
+                                                },
+                                                "status": {
+                                                    "$ref": "#/components/schemas/BookStatus"
+                                                }
+                                            },
+                                            "type": "object"
                                         }
                                     },
                                     "type": "object"
@@ -668,7 +676,8 @@
             "BookStatus": {
                 "properties": {
                     "id": {
-                        "type": "integer"
+                        "type": "integer",
+                        "example": 1
                     },
                     "status": {
                         "type": "string"
