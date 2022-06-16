@@ -1,23 +1,23 @@
 # The book organizer system for the publishers
 
-## Functional requirements
+## Функциональные требования
 
-- provide the ability to register and log in;
-- be able to create, store and edit books, record any changes in stored books;
-- give access to all the works of a particular user.
+- предоставить возможность регистрации и входа в систему;
+- иметь возможность создавать, хранить и редактировать книги, записывать любые изменения в сохраненных книгах;
+- предоставить доступ ко всем работам конкретного пользователя.
 
-## System requirements
+## Системные требования
 
-- http server;
-- stable network access;
-- Database-server;
+- http-сервер;
+- стабильный доступ к сети;
+- База данных-сервер;
 
-## Non-functional requirements
-- integration with the calendar;
-- the ability to restore access;
-- storage in the database;
-- uploading documents instead of working with text, or integrating VCS;
-- shared access for multiple users.
+## Нефункциональные требования
+- интеграция с календарем;
+- возможность восстановления доступа;
+- хранение в базе данных;
+- загрузка документов вместо работы с текстом или интеграция VCS;
+- общий доступ для нескольких пользователей.
 
 ## C4 diagrams
 
